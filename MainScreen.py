@@ -34,7 +34,7 @@ def move_food():
 
         collision = False
         for wall in walls:
-            if stationary_food.distance(wall) < 20:
+            if stationary_food.distance(wall) < 40:
                 collision = True
                 break
         if not collision:
@@ -92,18 +92,20 @@ def move():
     if head.direction == "left":
         x_direction = -1
         y_direction = 0
-    head.setx(x + x_direction*15)
-    head.sety(y + y_direction*15)
+
+    old_x = head.xcor()
+    old_y = head.ycor()
+
+    head.setx(old_x + x_direction*15)
+    head.sety(old_y + y_direction*15)
 
     for index in range(len(segments)-1, 0, -1):
-        x = segments[index-1].xcor()
-        y = segments[index-1].ycor()
-        segments[index].goto(x,y)
+        seg_x = segments[index-1].xcor()
+        seg_y = segments[index-1].ycor()
+        segments[index].goto(seg_x,seg_y)
 
     if len(segments) > 0:
-        x = head.xcor()
-        y = head.ycor()
-        segments[0].goto(x, y)
+        segments[0].goto(old_x, old_y)
     
 
 #keybinds
