@@ -1,5 +1,6 @@
 import turtle
 import time
+import random
 
 #Screen
 window = turtle.Screen()
@@ -23,7 +24,21 @@ stationary_food.color("red")
 stationary_food.penup()
 stationary_food.goto(-410,160)
 
+#Stationary Food Eating
 
+def move_food():
+    while True:
+        stationary_food_x = random.randint(-14, 14)*30
+        stationary_food_y = random.randint(-8,8)*30
+        stationary_food.goto(stationary_food_x, stationary_food_y)
+
+        collision = False
+        for wall in walls:
+            if stationary_food.distance(wall) < 20:
+                collision = True
+                break
+        if not collision:
+            break
 
 #Unstationary Food
 
@@ -37,13 +52,20 @@ head.penup()
 head.goto(250,-150)
 head.direction = "stop"
 
+#Snake Segments
+
+segments = []
+
+
+
+
 
 
 
 # Movement
 
-x_direction = 1
-y_direction = 1
+x_direction = 0
+y_direction = 0
 
 def go_up():
     head.direction = "up"
@@ -59,13 +81,17 @@ def move():
     x = head.xcor()
     y = head.ycor()
     if head.direction == "up":
+        x_direction = 0
         y_direction = 1
     if head.direction == "down":
         y_direction = -1
+        x_direction = 0
     if head.direction == "right":
         x_direction = 1
+        y_direction = 0
     if head.direction == "left":
         x_direction = -1
+        y_direction = 0
     head.setx(x + x_direction*15)
     head.sety(y + y_direction*15)
     
@@ -124,16 +150,42 @@ for pos in wall_positions:
     wall_segment.goto(pos)
     walls.append(wall_segment)
 
+#Wall Collision
 
+def game_over():
+    window.clear()
+    window.bgcolor("black")
+    write = turtle.Turtle()
+    write.hideturtle()
+    write.color("red")
+    write.penup()
+    write.goto(0,0)
+    write.write("You Lose", align="center", font=("Arial", 36, "bold"))
 
+                
+        
 
+#Calls Move Food After Walls is Defined
 
+move_food()
 
 #Main Game Loop
 
-while True:
+game_running = True
+while game_running == True:
     window.update()
     move()
+
+
+    if (head.xcor() >= 500 or head.xcor() <= -500) or (head.ycor() >= 300 or head.ycor() <= -300):
+        game_over()
+        head.direction = "stop"
+        game_running = False
+    for wall in walls:
+        if head.distance(wall) < 20:
+            game_over()
+            head.direction = "stop"  
+            game_running = False 
     time.sleep(0.1)
     
 turtle.done()
