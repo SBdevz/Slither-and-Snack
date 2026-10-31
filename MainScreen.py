@@ -28,8 +28,8 @@ stationary_food.goto(-410,160)
 
 def move_food():
     while True:
-        stationary_food_x = random.randint(-14, 14)*30
-        stationary_food_y = random.randint(-8,8)*30
+        stationary_food_x = random.randint(-28, 28)*15
+        stationary_food_y = random.randint(-16,16)*15
         stationary_food.goto(stationary_food_x, stationary_food_y)
 
         collision = False
@@ -94,6 +94,16 @@ def move():
         y_direction = 0
     head.setx(x + x_direction*15)
     head.sety(y + y_direction*15)
+
+    for index in range(len(segments)-1, 0, -1):
+        x = segments[index-1].xcor()
+        y = segments[index-1].ycor()
+        segments[index].goto(x,y)
+
+    if len(segments) > 0:
+        x = head.xcor()
+        y = head.ycor()
+        segments[0].goto(x, y)
     
 
 #keybinds
@@ -186,6 +196,21 @@ while game_running == True:
             game_over()
             head.direction = "stop"  
             game_running = False 
+    if head.distance(stationary_food) < 20:
+        move_food()
+        new_segment = turtle.Turtle()
+        new_segment.speed(0)
+        new_segment.shape("square")
+        new_segment.penup()
+        if len(segments) > 0:
+            x = segments[-1].xcor()
+            y = segments[-1].ycor()
+        else:
+            x = head.xcor()
+            y = head.ycor()
+        new_segment.goto(x,y)
+        segments.append(new_segment)
+
     time.sleep(0.1)
     
 turtle.done()
