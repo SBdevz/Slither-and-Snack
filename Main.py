@@ -2,6 +2,8 @@ import turtle
 import time
 import random
 
+from SnakeMovement import head, go_up, go_down, go_right, go_left, move
+
 #Screen
 window = turtle.Screen()
 
@@ -42,75 +44,15 @@ def move_food():
 
 #Unstationary Food
 
-#Snake Starting Head
-
-head = turtle.Turtle()
-head.speed(0)
-head.shape("square")
-head.color("black")
-head.penup()
-head.goto(250,-150)
-head.direction = "stop"
 
 #Snake Segments
 
 segments = []
 
-
-
-
-
-
-
-# Movement
-
-x_direction = 0
-y_direction = 0
-
-def go_up():
-    head.direction = "up"
-def go_down():
-    head.direction = "down"
-def go_right():
-    head.direction = "right"
-def go_left():
-    head.direction = "left"
-def move():
-    global x_direction
-    global y_direction
-    x = head.xcor()
-    y = head.ycor()
-    if head.direction == "up":
-        x_direction = 0
-        y_direction = 1
-    if head.direction == "down":
-        y_direction = -1
-        x_direction = 0
-    if head.direction == "right":
-        x_direction = 1
-        y_direction = 0
-    if head.direction == "left":
-        x_direction = -1
-        y_direction = 0
-
-    old_x = head.xcor()
-    old_y = head.ycor()
-
-    head.setx(old_x + x_direction*15)
-    head.sety(old_y + y_direction*15)
-
-    for index in range(len(segments)-1, 0, -1):
-        seg_x = segments[index-1].xcor()
-        seg_y = segments[index-1].ycor()
-        segments[index].goto(seg_x,seg_y)
-
-    if len(segments) > 0:
-        segments[0].goto(old_x, old_y)
-    
-
 #keybinds
 
 window.listen()
+from SnakeMovement import go_up, go_down, go_right, go_left, move
 window.onkeypress(go_up, "w")
 window.onkeypress(go_down, "s")
 window.onkeypress(go_right, "d")
