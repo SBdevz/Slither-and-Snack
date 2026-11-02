@@ -7,22 +7,6 @@ from GameOver import game_over
 from NewSegment import NewSegment
 from Food import move_food, apple
 
-
-#keybinds
-
-window.listen()
-from SnakeMovement import go_up, go_down, go_right, go_left, move
-window.onkeypress(go_up, "w")
-window.onkeypress(go_down, "s")
-window.onkeypress(go_right, "d")
-window.onkeypress(go_left, "a")
-
-
-
-#Wall Setup
-
-#Cross at the MIDDLE
-
 move_food()
 
 game_running = True

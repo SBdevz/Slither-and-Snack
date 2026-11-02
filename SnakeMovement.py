@@ -1,4 +1,5 @@
 import turtle 
+from Screen import window
 
 head = turtle.Turtle()
 head.speed(0)
@@ -24,6 +25,13 @@ def go_right():
 
 def go_left():
     head.direction = "left"
+
+window.listen()
+window.onkeypress(go_up, "w")
+window.onkeypress(go_down, "s")
+window.onkeypress(go_right, "d")
+window.onkeypress(go_left, "a")
+
 def move():
     global x_direction
     global y_direction
