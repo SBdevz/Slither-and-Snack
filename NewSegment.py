@@ -12,10 +12,10 @@ def NewSegment():
     global total_segments
     total_segments += 1
     if len(segments) > 0:
-        x = segments[-1].xcor() + 15
-        y = segments[-1].ycor() + 15
+        x = segments[-1].xcor() 
+        y = segments[-1].ycor() 
     else:
-        x = head.xcor()
+        x = head.xcor() - 15
         y = head.ycor()
     new_segment.goto(x, y)
     segments.append(new_segment)

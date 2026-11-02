@@ -35,8 +35,8 @@ window.onkeypress(go_left, "a")
 def move():
     global x_direction
     global y_direction
-    x = head.xcor()
-    y = head.ycor()
+    old_x = head.xcor()
+    old_y = head.ycor()
     if head.direction == "up":
         x_direction = 0
         y_direction = 1
@@ -55,5 +55,15 @@ def move():
 
     head.setx(old_x + x_direction*15)
     head.sety(old_y + y_direction*15)
+
+    from NewSegment import segments
+
+    for index in range(len(segments) -1, 0, -1):
+        x = segments[index-1].xcor()
+        y = segments[index-1].ycor()
+        segments[index].goto(x, y)
+
+    if len(segments) > 0:
+        segments[0].goto(old_x, old_y)
 
 
