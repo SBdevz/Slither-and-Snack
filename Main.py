@@ -1,14 +1,20 @@
 import turtle
 import time
 
-from Screen import window
+from Screen import window 
 from Walls import walls
 from SnakeMovement import head, go_up, go_down, go_right, go_left, move
 from GameOver import game_over
 from NewSegment import NewSegment, segments
 from Food import move_food, apple
 
+score = 0
+
+score_display = turtle.Turtle()
+score_display.hideturtle()
 move_food()
+score_display.goto(-480, 260)
+score_display.write(f"Score: {score}", align="left", font=("Arial", 16, "normal"))
 
 game_running = True
 while game_running == True:
@@ -26,11 +32,14 @@ while game_running == True:
     if head.distance(apple) < 20:
         move_food()
         NewSegment()
-    for segment in segments[1:]:
-        if head.distance(segment) < 10:
-            game_over()
-            head.direction = "stop"
-            game_running = False
+        score += 1
+        score_display.clear()
+        score_display.write(f"FinalScore: {score}", align="left", font=("Arial", 16, "normal"))
+        for segment in segments:
+            if head.distance(segment) < 10:
+                game_over()
+                head.direction = "stop"
+                game_running = False
     time.sleep(0.1)
     
 turtle.done()
