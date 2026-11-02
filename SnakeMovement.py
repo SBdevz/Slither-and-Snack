@@ -8,6 +8,8 @@ head.penup()
 head.goto(250,-150)
 head.direction = "stop"
 
+head_x = head.xcor()
+head_y = head.ycor()
 
 x_direction = 0
 y_direction = 0
