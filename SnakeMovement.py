@@ -32,6 +32,11 @@ window.onkeypress(go_down, "s")
 window.onkeypress(go_right, "d")
 window.onkeypress(go_left, "a")
 
+window.onkeypress(go_up, "Up")
+window.onkeypress(go_down, "Down")
+window.onkeypress(go_right, "Right")
+window.onkeypress(go_left, "Left")
+
 def move():
     global x_direction
     global y_direction
