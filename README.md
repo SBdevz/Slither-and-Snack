@@ -1,19 +1,27 @@
-Slither and Snack!
+# Slither and Snack! 🐍 🍎
+
 A revamped version of the original snake game! This game includes navigating walls, avoiding leaving the confines of the world, and eating apples.
 
-Our code is split into different modules and pooled together to create a working game!
+<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/588a3b21-ffc5-4419-956e-f1aaa01f2b46" />
 
-It includes:
+## Architecture
 
-Snake Growth
-Collision Detection
-Smooth Controls
-Eating System
-Score Tracker
+Our code contains multiple python files, which can be run all from the Main.py file.
 
-Built With:
+## Features
+
+Snake Growth- +1 length after every apple
+Collision Detection- Collision on walls and window frame
+Smooth Controls- WASD and arrow keys supported
+Eating System- Uses collision detection to eat the apple and relocates it after collision is detected
+Score Tracker- +1 score every apple
+Leveling System- Speeds up the snakes movement as score increases making it harder to avoid walls
+
+## Built With
 Python
-We also utilize three libraries, time, turtle, and random.
+Turtle Library
+Time Library
+Random Library
 
-LICENSE:
+## LICENSE
 Licensed by MIT
