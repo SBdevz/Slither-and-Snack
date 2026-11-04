@@ -32,12 +32,15 @@ for y in range(-220, -129, 30):
 
 walls = []
 
-for pos in wall_positions:
-    wall_segment = turtle.Turtle()
-    wall_segment.shape("square")
-    wall_segment.shapesize(stretch_wid=1.4, stretch_len= 1.4)
-    wall_segment.color("black")
-    wall_segment.penup()
-    wall_segment.goto(pos)
-    walls.append(wall_segment)
+def create_walls():
+
+
+    for pos in wall_positions:
+        wall_segment = turtle.Turtle()
+        wall_segment.shape("square")
+        wall_segment.shapesize(stretch_wid=1.4, stretch_len= 1.4)
+        wall_segment.color("black")
+        wall_segment.penup()
+        wall_segment.goto(pos)
+        walls.append(wall_segment)
 
