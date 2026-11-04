@@ -32,9 +32,9 @@ apple.hideturtle()
 def draw_homescreen():
     menu_pen.clear()
     menu_pen.goto(0, 80)
-    menu_pen.write("Slither and Snack", align= "center", font=("Arial", 36, "bold"))
+    menu_pen.write("Slither and Snack", align= "center", font=("Arial", 36))
     menu_pen.goto(0, -20)
-    menu_pen.write("Press \"SPACE\" to start game!", align="center", font=("arial", 36, "bold"))
+    menu_pen.write("Press \"SPACE\" to start game!", align="center", font=("arial", 36))
     window.update()
 
 def start_game():
@@ -52,7 +52,7 @@ def start_game():
         score_display.clear()
         score_display.penup()
         score_display.goto(-480, 260)
-        score_display.write(f"Score: {score}", align="left", font=("Arial", 16, "normal"))
+        score_display.write("Score: " + str(score), align="left", font=("Arial", 16))
         window.update()
 
 window.listen()
@@ -90,7 +90,7 @@ while game_running == True:
             NewSegment()
             score += 1
             score_display.clear()
-            score_display.write(f"Score: {score}", align="left", font=("Arial", 16, "normal"))
+            score_display.write("Score: " + str(score), align="left", font=("Arial", 16))
             for segment in segments:
                 if head.distance(segment) < 10:
                     game_over(score)

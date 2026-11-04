@@ -9,8 +9,8 @@ def game_over(finalScore):
     write.color("red")
     write.penup()
     write.goto(0,0)
-    write.write("Game Over", align="center", font=("Arial", 36, "bold"))
+    write.write("Game Over", align="center", font=("Arial", 36))
     write.goto(0, -50)
-    write.write(f'Score: {finalScore}', align="center", font=("Arial", 16, "normal"))
+    write.write("Score: " + str(finalScore), align="center", font=("Arial", 16))
 
 
