@@ -56,7 +56,7 @@ def start_game():
         window.update()
 
 window.listen()
-window.onkeypress(start_game, "space")
+window.onkey(start_game, "space")
 
 draw_homescreen()
 
