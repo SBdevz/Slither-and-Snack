@@ -6,6 +6,11 @@ A revamped version of the original snake game! This game includes navigating wal
   <img src="https://github.com/user-attachments/assets/588a3b21-ffc5-4419-956e-f1aaa01f2b46" alt="Slither and Snack Gameplay Screenshot" width="600">
 </div>
 
+## How to Run
+
+* Download release files
+* Double Click on Main.py it should open the game
+
 ##  Architecture
 
 Our code contains multiple Python files, which can all be executed from the central entry point:
