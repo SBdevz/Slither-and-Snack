@@ -1,8 +1,8 @@
 # Slither and Snack! 🐍 🍎
 
-A revamped version of the original snake game! This game includes navigating walls, avoiding leaving the confines of the world, and eating apples.
+A simple snake game where you eat apples to grow larger and gain points!
 
-<div align="center">
+<div align="left">
   <img src="https://github.com/user-attachments/assets/588a3b21-ffc5-4419-956e-f1aaa01f2b46" alt="Slither and Snack Gameplay Screenshot" width="600">
 </div>
 
@@ -11,6 +11,13 @@ A revamped version of the original snake game! This game includes navigating wal
 * Download release files
 * Open the file called "Main.exe" 
 *The game is ready to play
+
+## How to Play
+* Click the space bar to begin
+* Use WASD or Arrow Keys to control the snake
+* Eat Apples to grow larger and increase your score
+* If you crash into a wall or yourself, the game will end
+* Try to stay alive for as long as possible
 
 ##  Architecture
 
