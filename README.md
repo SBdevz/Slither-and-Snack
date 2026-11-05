@@ -9,7 +9,8 @@ A revamped version of the original snake game! This game includes navigating wal
 ## How to Run
 
 * Download release files
-* Double Click on Main.py it should open the game
+* Open the file called "Main.exe" 
+*The game is ready to play
 
 ##  Architecture
 
